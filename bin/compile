@@ -2,6 +2,7 @@
 # usage: bin/compile <build-dir> <cache-dir>
 
 set -eo pipefail
+set -x
 
 mkdir -p "$1" "$2"
 build=$(cd "$1/" && pwd)
@@ -57,8 +58,9 @@ PATH=$GOROOT/bin:$PATH
 if ! (which hg > /dev/null && which bzr > /dev/null)
 then
     echo -n "       Installing Virtualenv..."
-    virtualenv --python $python --distribute --never-download --prompt='(venv) ' $venv > /dev/null 2>&1
-    . $venv/bin/activate > /dev/null 2>&1
+    echo `pwd`
+    virtualenv --python $python --distribute --never-download --prompt='(venv) ' $venv
+    . $venv/bin/activate
     echo " done"
 
     echo -n "       Installing Mercurial..."
