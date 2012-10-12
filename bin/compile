@@ -64,11 +64,11 @@ then
     echo " done"
 
     echo -n "       Installing Mercurial..."
-    pip install --use-mirrors mercurial > /dev/null 2>&1
+    pip install --use-mirrors mercurial
     echo " done"
 
     echo -n "       Installing Bazaar..."
-    pip install --use-mirrors bzr > /dev/null 2>&1
+    pip install --use-mirrors bzr
     echo " done"
 fi
 
